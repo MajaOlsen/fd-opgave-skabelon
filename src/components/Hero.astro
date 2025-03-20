@@ -1,13 +1,70 @@
 ---
 import Services from "./Services.astro";
+import "../styles/global.css";
+import "../styles/main.css";
+import "../styles/components.css"
 ---
 
 <section class="hero">
-  <!-- Markup her -->
-
-  <Services />
+  <figure>
+  <div class="hero_container">
+    <div class="heroleft">
+      <h1>Empowering Your Business Growth</h1>
+      <p>Discover tailored strategies and expert insights to take your business to the next level. Let us help you navigate challenges and achieve sustainable success.</p>
+      <button class="whiteBigButton">Book a Meeting</button>
+    </div>
+    <div class="heroright">
+      <img src="/public/indexHero.png">
+    </div>
+  </div>
+</figure>
+  <Services class="services_container"/>
 </section>
 
 <style>
-  /* Styles her */
+  .hero_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .heroleft{
+    background-color: var(--black-color);
+    padding-left: max(20px, 50% - 350px / 2);
+    padding-top:max(20px,50% - 600px / 2);
+    padding-right: max(3rem, 10px);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+   
+    button{
+      display: inline-block;
+    }
+   
+    p{
+      color: white;  
+    }
+  }
+
+  figure {
+    position: relative;
+
+
+    &::before{
+      content: '';
+    position: absolute;
+    background-image: url("/Pattern.svg"); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    inset: 150px 1600px auto auto; 
+    width: 230px; 
+    height: 230px; 
+    z-index: 100;
+    }
+}
+  
+
+
+ 
+
 </style>

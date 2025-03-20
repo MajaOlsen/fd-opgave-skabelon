@@ -1,0 +1,148 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css"
+import "../styles/components.css"
+import SubscribeNewsletter from "../components/SubscribeNewsletter.astro"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+---
+
+<Layout>
+    <Header></Header>
+    <div class="hero_container"> 
+    <img src="/public/casestudyTop.png" class="heroImage">
+    <div class="whiteOverlay">
+    <p class="yellowSmallTag">case studies</p>
+    <h2>Taxes & Efficiency</h2>
+    </div>
+</div>
+   
+  <div class="category_container">  <div><img src="/public/casestudyTop2.png"></div>
+    <div class="blackOverlay">
+        <div><h6>Case Name</h6>
+        <p>Taxes and Efficiency</p></div>
+        <div><h6>Category</h6>
+        <p>Business</p></div>
+        <div><h6>Date</h6>
+        <p>27th September 2025</p></div>
+        <div class="yellowBigButton">Live Preview<button></button></div>
+    </div></div>
+  
+    <article class="flow">
+    <h3>Project Overview</h3>
+    <p class="pSections">Carrying out a major operational study allowed us to elevate data handling and streamline core tasks. By engaging each department thoroughly, we minimized wasted energy and promoted transparent communication. These changes empower the workforce to address key goals efficiently while boosting productivity. Advanced resources drive sustained innovation. Frequent reviews keep teams aligned with strategic objectives</p>
+    <ul>
+        <li>It brings the right people together with all the right information and tools to get work done</li>
+        <li>We provide operational efficiency, data security, and flexible scale</li>
+        <li>Your best work, together in one package that works seamlessly from your computer</li>
+        <li>Delivers the tools you need to save time Improve field performance always</li>
+    </ul>
+
+    <h4>Storyboard</h4>
+    <p class="pSections">Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service. Objectively innovate empowered manufactured products whereas parallel platforms. Holistically predominate extensible testing procedures for reliable supply chains.</p>
+    <p class="pSections">Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products completely pursue scalable customer service.</p>
+    <img src="/public/casestudy.png" class="casestudyIMG3">
+    <h4>Project result</h4>
+    <p class="pSections">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
+    <p class="pSections">Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+</article>
+<SubscribeNewsletter></SubscribeNewsletter>
+<Footer></Footer>
+</Layout>
+
+<style>
+    body{
+        margin: 0;
+    }
+
+    .pSections, ul, h3, h4{
+        margin-inline: max(1rem, 60% - var(--content-width) / 2); 
+    }
+    .casestudyIMG3{
+        margin-inline: max(1rem, 62% - var(--content-width) / 2); 
+    }
+
+    .hero_container{
+display:grid;
+grid-template-columns: 1fr;
+    }
+
+    .heroImage{
+        grid-row:1/2;
+        grid-column: 1/2;
+        z-index:1;
+        margin-bottom: var(--heroimage-margin);
+    }
+
+
+    .whiteOverlay{
+        grid-row: 1/2;
+        grid-column: 1/2;
+        z-index: 10;
+        background-color: rgba(255, 255, 255, 0.822);
+        backdrop-filter: blur(10px);
+        width:max(20%,500px);
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        border-radius: 25px;
+        padding: 2rem;
+        margin-left: max(20px, 50% - var(--content-width) / 2);
+        margin-block: max(20px, 9% - 10px / 2);
+    }
+
+    .category_container{
+        padding-inline: max(1rem, 50% - var(--content-width) / 2); 
+
+    }
+
+    .category_container img{
+        border-radius: 25px;
+    }
+
+    .blackOverlay{
+        background-color: var(--black-color);
+        display: flex;
+        padding-block: 3rem;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+        top:-2rem;
+        margin-inline: max(1rem, 58% - var(--content-width) / 2);
+        padding-inline: max(1rem, 55% - var(--content-width) / 2);
+        border-radius: 25px;
+    }
+
+    .blackOverlay h6 {
+        color: var(--white-color);
+    }
+
+    .blackOverlay p {
+        color: var(--white-color);
+    }
+
+    @media (max-width: 600px){
+        .heroImage{
+            width: auto;  
+           height: 250px; 
+         object-fit: cover; 
+        }
+
+        .blackOverlay{
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    @media(max-width:900px){
+        .heroImage{ width: auto;
+           height: 300px; 
+         object-fit: cover; }
+       
+    }
+
+ 
+</style>

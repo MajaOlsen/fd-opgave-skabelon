@@ -1,0 +1,151 @@
+---
+import "../styles/main.css"
+---
+
+<section class="percentagebars_section">
+    <div class="flow">
+      <p class="whiteSmallTag">experience</p>
+      <h3>More than 25 years of experience</h3>
+      <p>3000+ our clients are insured around the World</p>
+    </div>
+    <div class="stats">
+        <div><div class="stat" style="--percent: 85"   data-percent="85"></div>
+        <div><p>Consistency</p></div></div>
+
+        <div><div class="stat" style="--percent: 95" data-percent="95"></div>
+        <div><p>Improvement</p></div></div>
+
+        <div><div class="stat" style="--percent: 90" data-percent="90"></div>
+        <div><p>Branching</p></div></div>
+    </div>
+  </section>
+
+  <style>
+    
+
+/*styling af experience del med procent visere */
+
+.percentagebars_section{
+  display: grid;
+  grid-template-columns: auto 2fr;
+  gap: max(10px, 50% -  / 2);;
+  align-items: center;
+  background-color: var(--yellow-color);
+  padding-inline: max(20px, 50% - var(--content-width) / 2);
+  padding-block: 6rem;
+}
+
+
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  justify-self: end;
+  gap: 3rem;
+  width: min(600px, 100% - 1rem);
+  background: var(--yellow-color);
+}
+
+.stats div{
+  text-align: center;
+}
+
+.stats div p{
+  font-weight: 600;
+}
+
+.stat {
+  --p: calc(var(--percent) * 1%);
+  --border-width: 5px;
+  --border-color: #FFFFFF;
+  --border-bg: #DAAE3C;
+  
+  aspect-ratio: 1;
+  width: 150px;
+  border-radius: calc(Infinity * 1px);
+  border: var(--border-width) solid #0000;
+  background:
+    radial-gradient(circle at 50% calc(var(--border-width) / 2), var(--border-color) calc(var(--border-width) / 2), transparent 0) border-box,
+    linear-gradient(var(--yellow-color) 0 0) padding-box,
+    conic-gradient(var(--border-color) var(--p), var(--border-bg) 0) border-box;
+  
+  display: grid;
+  counter-reset: count var(--percent);
+  
+  &::before,
+  &::after {
+    grid-area: 1 / 1;
+  }
+  
+  &::after {
+    content: counter(count) "%";
+    place-self: center;
+    font-size: 2rem; 
+    font-weight: bold;
+  }
+  
+  &::before {
+    content: '';
+    aspect-ratio: 1;
+    border-radius: calc(Infinity * 1px);
+    width: calc(var(--border-width) * 3);
+    background: #000;
+    outline: 3px solid #fff;
+    outline-offset: -2px;
+    offset-path: border-box;
+    offset-distance: var(--p);
+    offset-anchor: 50% calc(50% - var(--border-width) / 2);
+  }
+}
+
+  </style>
+
+  
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Finder alle mine .stat elementer (de runde cirkeldiagrammer)
+        const stats = document.querySelectorAll(".stat");
+    
+        // Opretter en observer, der holder øje med, hvornår elementerne kommer ind i viewporten
+        let observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) { // Når et element er synligt nok
+                        let percent = entry.target.getAttribute("data-percent"); // Henter den procentværdi, jeg har sat i HTML
+                        animatePercentage(entry.target, percent); // Starter animationen
+                        observer.unobserve(entry.target); // Stopper observering, så animationen kun kører én gang
+                    }
+                });
+            },
+            { threshold: 0.5 } 
+            // Starter animationen, når 50% af elementet er synligt
+        );
+    
+        // Løber igennem alle mine stats og observerer dem
+        stats.forEach((stat) => observer.observe(stat));
+    
+        function animatePercentage(element, percent) {
+            let current = 0; 
+            // Starter fra 0
+            let interval = setInterval(() => {
+                if (current >= percent) { 
+                    // Når vi rammer den rigtige procent, stopper vi
+                    clearInterval(interval);
+                } else {
+                    current++; 
+                    // Øger procenten
+                    element.style.setProperty("--percent", current); 
+                    // Opdaterer CSS-variablen, så cirklen fylder mere
+                    element.setAttribute("data-percent", current); 
+                    // Opdaterer HTML, så den viser det rigtige tal
+                }
+            }, 20); 
+            // Justerer hastigheden af animationen (mindre tal = hurtigere)
+        }
+    }
+    
+    );
+    
+    
+    
+    </script>

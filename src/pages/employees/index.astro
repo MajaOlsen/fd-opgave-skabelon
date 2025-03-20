@@ -1,0 +1,97 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css"
+import "../../styles/components.css"
+import SubscribeNewsletter from "../../components/SubscribeNewsletter.astro"
+import Header from "../../components/Header.astro"
+import Footer from "../../components/Footer.astro"
+import TeamList from "../../components/TeamList.astro";
+
+---
+
+<Layout>
+    <Header></Header>
+    <div class="hero_container"> 
+        <img src="/public/teamHero.jpg" class="heroImage">
+        <div class="whiteOverlay">
+        <p class="yellowSmallTag">team</p>
+        <h2>The Consultors</h2>
+        </div>
+    </div>
+    <section>
+        <div class="meetTheTeam">
+            <div>
+                <h2>Meet Our Great Team</h2>
+                <p>Welcome to our amazing team! We are a group of passionate individuals dedicated to excellence and innovation. Each member brings unique skills and experiences, working together to achieve our goals. Join us as we embark on exciting projects and create lasting impacts.</p>
+            </div>
+            <div><button class="blackBigButton">Join our team</button></div>
+        </div>
+
+    </section>
+    <TeamList/>
+    <SubscribeNewsletter></SubscribeNewsletter>
+    <Footer>    </Footer>
+
+</Layout>
+
+
+<style>
+
+section{
+    padding-inline: max(20px, 50% - var(--content-width) / 2);
+}
+
+.hero_container{
+     display:grid;
+     grid-template-columns: 1fr;
+    }
+
+    .heroImage{
+        grid-row:1/2;
+        grid-column: 1/2;
+        z-index:1;
+        margin-bottom: var(--heroimage-margin);
+    }
+
+   
+
+    .whiteOverlay{
+        grid-row: 1/2;
+        grid-column: 1/2;
+        z-index: 10;
+        background-color: rgba(255, 255, 255, 0.822);
+        width:max(20%,400px);
+        height: max(20%, 150px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        border-radius: 25px;
+        margin-left: max(20px, 50% - var(--content-width) / 2);
+        margin-block: max(20px, 9% - 10px / 2);;
+        padding-inline: 2rem;
+    }
+
+    .meetTheTeam{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+
+    @media (max-width: 600px){
+        .heroImage{
+            width: auto;  
+           height: 250px; 
+         object-fit: cover; 
+        }
+    }
+
+    @media(max-width:900px){
+        .heroImage{ width: auto;
+           height: 300px; 
+         object-fit: cover; }
+       
+    }
+
+
+</style>

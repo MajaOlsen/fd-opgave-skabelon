@@ -1,0 +1,286 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css"
+import "../styles/components.css"
+import SubscribeNewsletter from "../components/SubscribeNewsletter.astro"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import OurVision from "../components/OurVision.astro";
+import TeamList from "../components/TeamList.astro";
+import Globe from "../icons/globe.svg";
+import Layers from "../icons/layers.svg";
+import Bars from "../icons/bars.svg";
+import Gear from "../icons/gear.svg";
+---
+
+<Layout>
+    <Header></Header>
+    <div class="hero_container">
+        <img src="/public/aboutHero.jpg" class="HeroImage">
+        <div class="whiteOverlay">
+            <p class="yellowSmallTag">Services</p>
+            <h2>Creative Services For Boost Your Business Growth</h2>
+        </div>
+    </div>
+    <OurVision/>
+    <section class="backgroundGrey">
+        <div class="coreValuesText_container">
+        <div class="flow">
+        <p class="yellowSmallTag">Growing with our clients</p>
+        <h3>Our core values & principles</h3>
+        <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+    </div>
+    <div><button class="blackBigButton">Get in touch</button></div>
+        </div>
+        <div class="coreValues_container">
+            <div>
+                <div class="icon-wrapper">
+                <Layers class="icons"/></div>
+                <h6>Creative Ideas</h6>
+                <p>Explore innovative strategies tailored to your goals. Unlock unique solutions that inspire growth and creativity. Drive impactful change.</p>
+                <h6>Read More &#8594;</h6>
+            </div>
+            <div>
+                <div class="icon-wrapper">
+                <Bars class="icons"/></div>
+                <h6>Best Features</h6>
+                <p>Deliver advanced tools designed for seamless integration. Optimize workflows with cutting-edge technology.</p>
+                <h6>Read More &#8594;</h6>
+            </div>
+            <div>
+                <div class="icon-wrapper">
+                <Globe class="icons"/></div>
+                <h6>Experience</h6>
+                <p>Leverage years of proven expertise across diverse industries. Empower your business with our skilled professionals. Achieve sustainable success.</p>
+                <h6>Read More &#8594;</h6>
+            </div>
+            <div>
+                <div class="icon-wrapper">
+                <Gear class="icons"/></div>
+                <h6>Easy Solutions</h6>
+                <p>Streamline your challenges with simple, effective solutions. Ensure hassle-free implementation for measurable results.</p>
+                <h6>Read More &#8594;</h6>
+            </div>
+        </div>
+    </section>
+    <section class="members flow">
+        <p class="yellowSmallTag">our team</p>
+        <h3>We champion the bold to achieve the extraordinary</h3>
+        <p>Our success stems from the synergy between dedicated teams and our valued clients. We prioritize a company culture that fosters exceptional productivity, ensures customer satisfaction, and promotes mutual respect among all team members.</p>
+        <TeamList antal="3"/>  
+    </section>
+    
+    <section class="backgroundGrey2">
+        <p class="greenSmallTag">FAQ</p>
+        <h3>Customer Questions</h3>
+        <div class="accordion_container">
+            <details>
+                <summary>What will happen when I've sent my application?</summary>
+                <div>Ippsum is the result of synergy between our teams and our customers.</div>
+            </details>
+            <details>
+                <summary>Can I get a free trial before I purchase?</summary>
+                <div>Ippsum is the result of synergy between our teams and our customers.</div>
+            </details>
+            <details>
+                <summary>What should I include in my personal statement?</summary>
+                <div>Ippsum is the result of synergy between our teams and our customers.</div>
+            </details>
+            <details>
+                <summary>Will membership plans be charged automatically?</summary>
+                <div>Ippsum is the result of synergy between our teams and our customers.</div>
+            </details>
+            <details>
+                <summary>What will happen when I've sent my application?</summary>
+                <div>Ippsum is the result of synergy between our teams and our customers.</div>
+            </details>
+            <details>
+                <summary>Can I get a free trial before I purchase?</summary>
+                <div>Ippsum is the result of synergy between our teams and our customers.</div>
+            </details>
+        </div>
+    </section>
+    <SubscribeNewsletter></SubscribeNewsletter>
+    <Footer></Footer>
+
+</Layout>
+
+<style>
+   
+    .hero_container{
+        display:grid;
+        grid-template-columns: 1fr;
+    }
+
+    .HeroImage{
+        grid-row:1/2;
+        grid-column: 1/2;
+        z-index:1;
+        margin-bottom: var(--heroimage-margin);
+    }
+
+    .whiteOverlay{
+        grid-row: 1/2;
+        grid-column: 1/2;
+        z-index: 10;
+        background-color: rgba(255, 255, 255, 0.822);
+        width:max(20%,700px);
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        border-radius: 25px;
+        margin-left: max(20px, 50% - var(--content-width) / 2);
+        margin-block: max(20px, 9% - 10px / 2);;
+        padding-inline: 2rem;
+        padding-block: 2rem;        
+    }
+
+
+.backgroundGrey{
+    background-color: var(--offwhite-color);
+padding-block: 5rem;
+}
+
+.coreValuesText_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coreValues_container{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: auto;
+    gap: 1rem;
+    padding-block: 2rem;
+}
+
+.coreValues_container div{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--white-color);
+    padding: 0.5rem;
+    border-radius: 20px;
+    margin: 0.5rem;
+
+    img{
+        width: 30px;
+    }
+}
+
+.coreValues_container div:hover{
+    transform: scale(1.05);
+    transition: ease-in 0.2s;
+    cursor: pointer;
+}
+
+
+section{
+    padding-inline: max(1rem, 50% - var(--content-width) / 2);
+    margin-bottom: 2rem;
+}
+
+.icons{
+    color: var(--white-color);
+}
+
+.icon-wrapper{
+    background-color:black !important;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/*team emmebers styling */
+.members{
+    padding-block: 5rem;
+}
+
+
+
+
+/*Accordion styling */
+.backgroundGrey2{
+    background-color: var(--offwhite-color);
+
+    border-radius: 25px;
+    margin-inline: max(1rem, 50% - var(--content-width) / 2);
+    padding-block:6rem;
+    text-align: center;
+    
+
+}
+
+.accordion_container {
+    max-width: 600px;
+    margin: 20px auto;
+    border-top: 1px solid #ccc;
+ }
+ details {
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    transition: all 0.3s ease;
+ }
+ summary {
+    background: none;
+    color: black;
+    padding: 15px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+ }
+ summary::after {
+    content: '\002B';
+    font-size: 22px;
+    font-weight: bold;
+    transition: transform 0.3s;
+ }
+ details[open] summary::after {
+     content: '\2212'; 
+ }
+ details div {
+    padding: 0 15px;
+    color: #333;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+ }
+ details[open] div {
+    max-height: 500px; 
+    opacity: 1;
+    padding: 15px;
+ }
+
+
+        @media (max-width: 600px){
+
+        .heroImage{
+            width: auto;  
+           height: 300px; 
+         object-fit: cover;      
+        }
+
+        .coreValues_container{
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media(max-width:900px){
+        .heroImage{ width: auto;
+           height: 300px; 
+         object-fit: cover; }
+       
+    }
+
+</style>

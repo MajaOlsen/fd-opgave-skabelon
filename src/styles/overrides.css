@@ -1,1 +1,22 @@
 /* Override styles here */
+.flow {
+  > * + * {
+    margin-top: var(--flow-space, 1rem);
+  }
+
+  h4 {
+    --flow-space: 1rem;
+  }
+
+  ul {
+    --flow-space: 2rem;
+  }
+
+  p {
+    --flow-space: 1rem;
+  }
+
+  h3 {
+    --flow-space: 1rem;
+  }
+}

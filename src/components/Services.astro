@@ -3,16 +3,59 @@
 const servicesData = await fetch(
   "https://frontend-design-theme.netlify.app/api/services"
 ).then((response) => response.json());
+
+import "../styles/global.css";
+import "../styles/main.css";
+import "../styles/components.css"
 ---
 
 <ul>
   {
     servicesData.services.map((service) => (
       <li>
-        <h2>{service.title}</h2>
+        <h5>{service.title}</h5>
         <p>{service.description}</p>
-        <a href="#0">{service.buttonText}</a>
+        <a href="#0" class="blackBigButton">{service.buttonText}</a>
       </li>
     ))
   }
 </ul>
+
+<style>
+ul{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding-inline: max(20px, 50% - var(--content-width) / 2);
+  margin-top: -100px;
+  margin-bottom: 4rem;
+
+  li{
+    background-color: rgba(28, 28, 28, 0.87);
+    backdrop-filter:blur(15px);
+    padding: 2rem;
+    border-radius: 25px;
+    border: solid 1px grey;
+    list-style: none;
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+
+    p{
+      color: white;
+    }
+    h5{
+      color: white;
+    }
+
+    a{
+      margin-top: auto;
+    }
+   
+  }
+}
+
+
+
+</style>

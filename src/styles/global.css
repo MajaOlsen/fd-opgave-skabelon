@@ -1,1 +1,141 @@
 /* Globale styles her */
+/* Definer variabler i :root, så de gælder globalt */
+
+@layer global {
+  @font-face {
+    font-family: "Cabin";
+    src: url(../assets/fonts/Cabin-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: "Lato";
+    src: url(../assets/fonts/Lato-Regular.ttf);
+  }
+
+  :root {
+    --content-width: 75rem;
+    /*Hero image margin*/
+    --heroimage-margin: 6rem;
+
+    /*footer margin*/
+    --footer-margin: 3rem;
+
+    /*Farver*/
+    --yellow-color: #ffcc4a;
+    --green-color: #4eaf4e;
+    --black-color: #181818;
+    --offwhite-color: #f5f5f5;
+    --white-color: #ffffff;
+    --grey-color: rgba(27, 27, 27, 0.91);
+
+    /*Padding og margin*/
+
+    /*font sizes*/
+    --p-size: 16px;
+    --h1-size: 50px;
+    --h2-size: 45px;
+    --h3-size: 40px;
+    --h4-size: 35px;
+    --h5-size: 30px;
+    --h6-size: 25px;
+    --btn-size: 18px;
+
+    /*Line heights*/
+    --h-lineheight: 116%;
+    --btn-lineheight: 116%;
+    --p-lineheight: 147.5%;
+    --ol-lineheight: 214.5%;
+    --ul-lineheight: 214.5%;
+
+    /*font family*/
+    --cabin-font: "Cabin";
+    --lato-font: "Lato";
+
+    /*flow-space*/
+
+    /* --flow-space: 1rem;
+
+    @media (min-width: 768px) {
+      --flow-space: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      --flow-space: 2rem;
+    } */
+
+    --checkmark-icon: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="%234EAF4E" d="M176.49 95.51a12 12 0 0 1 0 17l-56 56a12 12 0 0 1-17 0l-24-24a12 12 0 1 1 17-17L112 143l47.51-47.52a12 12 0 0 1 16.98.03M236 128A108 108 0 1 1 128 20a108.12 108.12 0 0 1 108 108m-24 0a84 84 0 1 0-84 84a84.09 84.09 0 0 0 84-84"/></svg>');
+  }
+
+  p,
+  h2,
+  h3,
+  h4,
+  h5 {
+    /* margin-bottom: var(--flow-space); */
+  }
+
+  h1 {
+    font-size: var(--h1-size);
+    color: var(--white-color);
+    line-height: var(--h-lineheight);
+    font-weight: 700;
+    font-family: var(--cabin-font);
+  }
+
+  h2 {
+    font-size: var(--h2-size);
+    color: var(--black-color);
+    line-height: var(--h-lineheight);
+    font-weight: 700;
+    font-family: var(--cabin-font);
+  }
+
+  h3 {
+    font-size: var(--h3-size);
+    color: var(--black-color);
+    line-height: var(--h-lineheight);
+    font-weight: 700;
+    font-family: var(--cabin-font);
+  }
+
+  h4 {
+    font-size: var(--h4-size);
+    color: var(--black-color);
+    line-height: var(--h-lineheight);
+    font-weight: 700;
+    font-family: var(--cabin-font);
+  }
+
+  h5 {
+    font-size: var(--h5-size);
+    color: var(--black-color);
+    line-height: var(--h-lineheight);
+    font-weight: 700;
+    font-family: var(--cabin-font);
+  }
+
+  h6 {
+    font-size: var(--h6-size);
+    color: var(--black-color);
+    line-height: var(--h-lineheight);
+    font-weight: 700;
+    font-family: var(--cabin-font);
+  }
+
+  p {
+    font-size: var(--p-size);
+    color: var(--black-color);
+    line-height: var(--p-lineheight);
+    font-weight: 400;
+    font-family: var(--lato-font);
+  }
+  ul,
+  li {
+    font-family: var(--lato-font);
+    line-height: var(--ul-lineheight);
+  }
+
+  /*LAV HOVERRRR*/
+
+  /* Variabler i styles */
+}

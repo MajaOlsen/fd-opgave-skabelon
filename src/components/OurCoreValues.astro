@@ -1,0 +1,124 @@
+---
+import "../styles/main.css"
+import Layers from "../icons/layers.svg";
+import Bars from "../icons/bars.svg";
+import Gear from "../icons/gear.svg";
+import Globe from "../icons/globe.svg";
+
+---
+
+
+
+<section class="blackbackground">
+    <div class="coreValuestext_container">
+      <div class="flow">
+        <p class="yellowSmallTag">Growing with our clients</p>
+        <h3>Our core values & principles</h3>
+        <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+      </div>
+      <div><button class="whiteBigButton">Get in Touch</button></div>
+    </div>
+    <div class="coreValues_container">
+      <div class="coreValues_card flow">
+        <div class="icon-wrapper">
+        <div><Layers class="icon"/></div></div>
+        <h6>Creative Ideas</h6>
+        <p>Explore innovative strategies tailored to your goals. Unlock unique solutions that inspire growth and creativity. Drive impactful change.</p>
+        <h6>Read More &#8594;</h6>
+      </div>
+      <div class="coreValues_card flow">
+        <div class="icon-wrapper">
+        <div><Bars class="icon"/></div></div>
+        <h6>Best Features</h6>
+        <p>Deliver advanced tools designed for seamless integration. Optimize workflows with cutting-edge technology.</p>
+        <h6>Read More &#8594;</h6>
+      </div>
+      <div class="coreValues_card flow">
+        <div class="icon-wrapper">
+        <div><Globe class="icon"/></div></div>
+        <h6>Experience</h6>
+        <p>Leverage years of proven expertise across diverse industries. Empower your business with our skilled professionals. Achieve sustainable success.</p>
+        <h6>Read More &#8594;</h6>
+      </div>
+      <div class="coreValues_card flow">
+        <div class="icon-wrapper">
+        <div><Gear class="icon"/></div></div>
+        <h6>Easy Solutions</h6>
+        <p>Streamline your challenges with simple, effective solutions. Ensure hassle-free implementation for measurable results.</p>
+        <h6>Read More &#8594;</h6>
+      </div>
+    </div>
+  </section>
+
+
+
+
+<style>
+    
+/*core values & principles styling */
+
+.coreValuestext_container{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  h3{
+    color: white;
+  }
+
+  p{
+    color: white;
+  }
+}
+
+.blackbackground{
+  background-color: var(--black-color);
+  padding-inline: max(20px, 50% - var(--content-width) / 2);
+  padding-block: 6rem;
+}
+.coreValues_container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding-block: 2rem;
+}
+
+.coreValues_card{
+  background-color: var(--offwhite-color);
+  padding: 2rem;
+  border-radius: 25px;
+
+  img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  }
+}
+
+.coreValues_card:hover{
+    transform: scale(1.05);
+    transition: ease-in-out 0.2s;
+    
+}
+
+.icon{
+    color: var(--white-color);
+}
+
+.icon-wrapper{
+    background-color:black !important;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+</style>

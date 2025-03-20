@@ -1,0 +1,214 @@
+---
+import "../styles/global.css"
+import "../styles/components.css"
+---
+
+
+<section class="scrolling_section">
+    <div class="scrollingtop_container">
+      
+    <div class="scrollingtext flow">
+    <h3>Financial Projections</h3>
+    <p>Financial projections are essential for planning and monitoring a company’s performance. They provide insights into potential revenue, expenses, and profitability over specific periods.</p>
+    </div>
+
+    <div class="arrows_container">
+    <div class="icon-wrapper black-bg">
+      <img src="/src/icons/arrow-left.svg" class="icon white-icon">
+    </div>
+    <div class="icon-wrapper yellow-bg">
+      <img src="/src/icons/arrow--right.svg" class="icon">
+    </div>
+  </div> 
+
+  </div>
+ 
+    <ul role="list" class="scrolling_ul">
+      <li class="scrolling_li">
+        <div><img src="/src/icons/cal.svg"></div>
+        <h5>The Balance Sheet</h5>
+        <p>The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time.</p>
+      </li>
+      
+      <li>
+        <div><img src="/src/icons/card.svg"></div>
+        <h5>Income Statement</h5>
+        <p>The Income (Profit and Loss) Statement, commonly referred to as the P&L statement, summarizes the revenue and expenses for a specific time period (one month, one quarter, one year, etc.)</p>
+      </li>
+      
+      <li>
+        <div><img src="/src/icons/law.svg"></div>
+        <h5>Financial Plan</h5>
+        <p>Keep your information current and review the documents on a regular basis (monthly or more often if needed). Review them with key individuals within your company.</p>
+      </li>
+      
+      <li>
+        <div><img src="/src/icons/money.svg"></div>
+        <h5>Financial Ratios</h5>
+        <p>Ratios are useful when comparing your company with the competition on financial performance and also when benchmarking the performance of your company.</p>
+      </li>
+    </ul>
+  </section>
+
+  <style>
+   
+
+
+.scrolling_section {
+  background-color: var(--offwhite-color);
+  gap: 20px;
+  padding-block: 6rem;
+}
+
+.scrollingtop_container {
+  display: grid;
+  padding-inline: max(20px, 50% - var(--content-width) / 2);
+  grid-template-columns: 1fr 1fr; 
+  align-items: center; 
+  gap: 2rem;
+}
+
+.scrollingtext {
+  grid-column: 1; }
+
+.arrows_container {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end; 
+}
+
+.scrolling_ul {
+  grid-column: 1 / -1;
+  scroll-snap-type: inline mandatory;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(90%, 400px);
+  gap: 1rem;
+  overflow-x: auto;
+  padding-inline: max(20px, 50% - var(--content-width) / 2);
+  padding-block: 2rem;
+  scroll-padding-inline-start: max(20px, 50% - var(--content-width) / 2);
+}
+
+.scrolling_ul li {
+    scroll-snap-align: center;
+    scroll-snap-stop:always;
+  flex-basis: min(65%, 400px);
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  padding: 2rem;
+  border-radius: 20px;
+  background-color: rgb(234, 234, 234);
+  img{
+    margin-bottom: 1rem;
+  }
+}
+
+.scrolling_ul li.active {
+  background-color: black ;
+  img{
+    /*Dannie du ser ik noget her. kig væk:) */
+    filter: brightness(0) saturate(1200%) invert(200%) sepia(500%) saturate(1200%) hue-rotate(330deg);
+  }
+  h5{
+    color: white;
+  }
+  p{
+    color: white;
+  }
+
+}
+
+.icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.black-bg {
+  background-color: var(--black-color);
+  transition: 0.1s ease;
+  &:hover{
+    transform: scale(1.05);
+  }
+}
+
+.yellow-bg {
+  background-color: var(--yellow-color);
+  transition: 0.1s ease;
+  &:hover{
+    transform: scale(1.05);
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.white-icon {
+  filter: invert(1);
+}
+
+  </style>
+
+  <script>document.addEventListener("DOMContentLoaded", function () {
+    const listItems = document.querySelectorAll(".scrolling_ul li");  // Ændret fra cards til listItems
+    let activeIndex = 0;
+    let shouldScroll = false;
+  
+    // Funktion til at opdatere aktivt kort (list item)
+    function updateActiveItem(newIndex) {
+      // Fjern 'active' fra nuværende kort
+      listItems[activeIndex].classList.remove("active");
+  
+      // Opdater index
+      activeIndex = newIndex;
+  
+      // Tilføj 'active' til det nye kort
+      listItems[activeIndex].classList.add("active");
+  
+      // Scroll kun hvis brugeren interagerer (shouldScroll er true)
+      if (shouldScroll) {
+        listItems[activeIndex].scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center", // Centrere elementet i visningen
+        });
+      }
+    }
+  
+    // Event listener for klik på list items (li)
+    listItems.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        shouldScroll = true;  // Brugeren interagerer, tillad scroll
+        updateActiveItem(index);
+      });
+    });
+  
+    // Event listeners for pilene
+    const leftArrow = document.querySelector(".arrows_container .black-bg");
+    const rightArrow = document.querySelector(".arrows_container .yellow-bg");
+  
+    leftArrow?.addEventListener("click", function () {
+      if (activeIndex > 0) {
+        shouldScroll = true;  // Brugeren interagerer, tillad scroll
+        updateActiveItem(activeIndex - 1);
+      }
+    });
+  
+    rightArrow?.addEventListener("click", function () {
+      if (activeIndex < listItems.length - 1) {
+        shouldScroll = true;  // Brugeren interagerer, tillad scroll
+        updateActiveItem(activeIndex + 1);
+      }
+    });
+  
+    // Start med at markere det første item som aktivt, men uden at scrolle
+    updateActiveItem(activeIndex);
+  });
+  
+  </script>

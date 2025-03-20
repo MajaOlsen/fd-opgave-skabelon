@@ -1,10 +1,108 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import "../styles/global.css";
+import "../styles/components.css";
+import "../styles/main.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SubscribeNewsletter from "../components/SubscribeNewsletter.astro";
+import ScrollingContainer from "../components/ScrollingContainer.astro";
+import OurCoreValues from "../components/OurCoreValues.astro";
+import PercentageSection from "../components/PercentageSection.astro";
+import ContactUs from "../components/ContactUs.astro";
 ---
 
 <Layout>
+<Header></Header>
   <Hero />
+  <section class="whatToExpect">
+    <figure>
+    <div><img src="/public/indexTop.jpg"></div></figure>
+    <div>
+      <p class="yellowSmallTag">we'll work with you</p>
+      <h3>What To Expect</h3>
+      <p>Our collaboration is built on transparency, efficiency, and measurable results. Together, we create strategies tailored to your unique needs and goals.</p>
+      <ul>
+        <li class="whatToExpect_li">Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.</li>
+        <li class="whatToExpect_li">Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital.</li>
+    </ul>   
+    </div>
+  </section>
+ <ScrollingContainer/>
+ <PercentageSection/>
+ <OurCoreValues/>
+  <ContactUs/>
+<SubscribeNewsletter></SubscribeNewsletter>
+<Footer></Footer>
 </Layout>
 
-<style></style>
+<style>
+  section{
+    padding-inline: max(1rem, 50% - var(--content-width) / 2);
+  }
+
+ul {
+  display: grid;
+  gap: 1rem;
+  line-height: 1.5;
+  padding-left: 0;
+}
+
+.whatToExpect_li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
+.whatToExpect_li::before {
+  content: '';
+  width: 1.6rem;
+  height: 1lh;
+  background: var(--checkmark-icon) 50% 50% / 100% auto no-repeat;
+  background-position: 50% 50%;
+  background-size: 100% auto;
+}
+
+.whatToExpect{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding-block:5rem;
+  img{
+    border-radius: 25px;
+  }
+}
+
+figure {
+    position: relative;
+
+    &::before{
+      content: '';
+    position: absolute;
+    background-image: url("/Pattern.svg"); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    inset: -60px 360px auto auto; 
+    width: 300px; 
+    height: 300px; 
+    z-index: -1;
+    }
+
+    &::after{
+      content: '';
+    position: absolute;
+    left: -2rem; 
+    bottom: 15.5rem; 
+    background: green;
+    width: 150px;
+    height: 150px; 
+    border-radius: 15px;
+    z-index: -1;
+    }
+}
+
+
+
+</style>

@@ -1,0 +1,173 @@
+---
+import "../styles/main.css"
+---
+
+<section>
+    <div class="ourVision_container flow">
+        <div><p class="greenSmallTag">Our vision</p>
+        <h3>Turn your ideas into reality.</h3>
+    <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+   <ul>
+    <li>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.</li>
+    <li>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital.</li>
+</ul>   
+</div>
+<figure>  
+<div class="ourVisionIMG_container">
+    <img src="aboutTop.jpg"></div>
+    </div></figure>  
+    <div class="numbers_container">
+      <div>
+        <h1>1128+</h1>
+        <p>Succesful Work</p>            
+    </div>  
+    <div>
+        <h1>908+</h1>
+        <p>Team Member</p>            
+    </div> 
+    <div>
+        <h1>258+</h1>
+        <p>Happy Customers</p>            
+    </div> 
+    <div>
+        <h1>564+</h1>
+        <p>Creative Idea</p>            
+    </div> 
+    </div>
+</section>
+
+<style>
+    section {
+        padding-inline: max(20px, 50% - var(--content-width) / 2);
+    }
+    .ourVision_container{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .numbers_container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        h1{
+            color: black;
+        }
+    }
+
+    .numbers_container div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+    padding-block: 3rem;
+    }
+
+.numbers_container div:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.numbers_container div:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.numbers_container div:nth-child(3) {
+    animation-delay: 0.6s;
+}
+.numbers_container div:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+    
+    
+ul {
+  display: grid;
+  gap: 1rem;
+  line-height: 1.5;
+  padding-left: 0;
+}
+
+li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  font-size: 1rem;
+  color: #595566;
+}
+
+li::before {
+  content: '';
+  width: 1.6rem;
+  height: 1lh;
+  background: var(--checkmark-icon) 50% 50% / 100% auto no-repeat;
+  background-position: 50% 50%;
+  background-size: 100% auto;
+}
+
+
+figure {
+    position: relative;
+
+    img{
+        border-radius: 25px;
+    }
+
+    &::before{
+      content: '';
+    position: absolute;
+    background-image: url("/Pattern.svg"); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    inset: -60px 5px auto auto; 
+    width: 300px; 
+    height: 300px; 
+    z-index: -1;
+    }
+
+    &::after{
+      content: '';
+    position: absolute;
+    left: 24rem; 
+    bottom: 14rem; 
+    background: green;
+    width: 150px;
+    height: 150px; 
+    border-radius: 15px;
+    z-index: -1;
+    }
+}
+
+@media (max-width:800px){
+    .ourVision_container{
+        grid-template-columns: 1fr;;
+    }
+
+    ul{
+        padding-bottom: 2rem;
+    }
+
+    .numbers_container{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+
+</style>
+
